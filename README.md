@@ -47,4 +47,3 @@ The lab programs cover various important Data Structures and Algorithms concepts
 
 
 
-Computer Engineering Student
