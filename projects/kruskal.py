@@ -5,18 +5,22 @@ def input_graph():
     with open("graph.txt", "w") as file:
         file.write(f"{vertices} {edges}\n")
 
-        print("enter graph details:\n")
+        print("\nEnter graph details:\n")
 
         for i in range(edges):
-            print(f"Edge {i+1}")
+            print(f"Edge {i + 1}")
 
-            u = int(input("Enter first vertex: "))
-            v = int(input("Enter second vertex: "))
+            u = input("Enter first vertex: ").upper()
+            v = input("Enter second vertex: ").upper()
             weight = int(input("Enter weight: "))
+
+            # Convert alphabet to number
+            u = ord(u) - ord('A')
+            v = ord(v) - ord('A')
 
             file.write(f"{u} {v} {weight}\n")
 
-    print("\ngraph saved successfully.")
+    print("\nGraph saved successfully.")
 
 
 def read_graph():
@@ -78,11 +82,16 @@ def kruskal(vertices, edge_list):
 
             union(parent, u, v)
 
-    print("\nminimum spanning tree\n")
+    print("\nMinimum Spanning Tree\n")
 
-    print("edge\tweight")
+    print("Edge\tWeight")
 
     for u, v, weight in mst:
+
+        # Convert number back to alphabet
+        u = chr(u + ord('A'))
+        v = chr(v + ord('A'))
+
         print(f"{u} -- {v}\t{weight}")
 
     print("\nTotal Cost =", total_cost)
