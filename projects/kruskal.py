@@ -14,7 +14,7 @@ def input_graph():
             v = input("Enter second vertex: ").upper()
             weight = int(input("Enter weight: "))
 
-            # Convert alphabet to number
+            
             u = ord(u) - ord('A')
             v = ord(v) - ord('A')
 
